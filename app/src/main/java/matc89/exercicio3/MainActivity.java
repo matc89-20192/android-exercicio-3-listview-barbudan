@@ -21,7 +21,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-@RequiresApi(api = Build.VERSION_CODES.N)
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;

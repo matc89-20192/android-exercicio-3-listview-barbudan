@@ -26,12 +26,21 @@ public class MyAdapter extends ArrayAdapter<Tarefa> {
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
                 view = inflater.inflate(android.R.layout.simple_list_item_2, null);
+
+                ViewHolder myHolder = new ViewHolder();
+                myHolder.textDescricao = view.findViewById(android.R.id.text1);
+                myHolder.textPrioridade = view.findViewById(android.R.id.text2);
+                view.setTag(myHolder);
             }
-            TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-            TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-            text1.setText(tarefa.getDescricao());
-            text2.setText("Prioridade: " + String.valueOf(tarefa.getPrioridade()));
+            ViewHolder myHolder = (ViewHolder) view.getTag();
+            myHolder.textDescricao.setText(tarefa.getDescricao());
+            myHolder.textPrioridade.setText("Prioridade: " + String.valueOf(tarefa.getPrioridade()));
         }
         return view;
+    }
+
+    static class ViewHolder {
+        public TextView textDescricao;
+        public TextView textPrioridade;
     }
 }
